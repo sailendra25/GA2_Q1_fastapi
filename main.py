@@ -16,7 +16,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+@app.get("/")
+def home():
+    return {"message": "FastAPI service is running"}
 @app.middleware("http")
 async def add_headers(request, call_next):
     start = time.perf_counter()
